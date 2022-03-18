@@ -1,0 +1,16 @@
+.nav {
+  background-color: #d8d8d8;
+  color: #6264e0;
+  font-size: 1.8rem;
+
+  ul {
+    display: flex;
+    padding: 10px 30px;
+
+    li {
+      margin-right: 25px;
+      
+      a{ font-weight: bold; }
+    }
+  }
+}

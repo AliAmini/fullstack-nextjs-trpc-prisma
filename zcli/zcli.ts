@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-console.log('==== process.argv', process.argv);
+// console.log('==== process.argv', process.argv);
 /* 
 command: $ node zero-cli/zero-cli.js hello my
 
@@ -65,7 +65,7 @@ async function runCommand() {
   const dirPath = path.join(__dirname, elementTypeKey);
   const files: string[] = fs.readdirSync(dirPath);
   const REPLACE_KEYWORD = 'FILE_NAME';
-  console.log(files); // [ 'FILE_NAME.component.tsx', 'FILE_NAME.module.scss' ]
+  // console.log(files); // [ 'FILE_NAME.component.tsx', 'FILE_NAME.module.scss' ]
 
   files.forEach(fileName => {
     const filePath = path.join(dirPath, fileName);
@@ -77,7 +77,7 @@ async function runCommand() {
 
     // == write file ====
     const finalFilePath = path.join('./',  curElementType.projectPath, destFileName, fileName.replace(REPLACE_KEYWORD, destFileName));
-    console.log('==== destFilePath', finalFilePath);
+    console.log('==== wrinting: ', finalFilePath);
     fs.mkdirSync(path.dirname(finalFilePath), { recursive: true } ); // make sure dir exists
     fs.writeFileSync(finalFilePath, fileDate);
     

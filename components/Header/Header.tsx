@@ -4,7 +4,7 @@ import styles from './Header.module.scss';
 const Header: FC = () => {
   return ( 
     <header className={`header ${styles.header}`}>
-      <h3>Header</h3>
+      <h3 className={styles.title}>Header</h3>
     </header>
   );
 }

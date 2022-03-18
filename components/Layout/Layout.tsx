@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
-import Header from '../Header/Header.component';
+import Header from '../Header/Header';
+import Nav from '../Nav/Nav';
 import styles from './Layout.module.scss';
 
 interface Props {
@@ -12,6 +13,7 @@ const Layout:FC<Props> = ({
 
   return ( 
     <div className={styles.container}>
+      <Nav />
       <Header />
 
       <main className={`main ${styles.main}`}>

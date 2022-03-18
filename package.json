@@ -7,10 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cli-c": "tsc zcli/zcli --esModuleInterop",
-    "cli": "node zcli/zcli.js"
+    "zcli-c": "tsc zcli/zcli --esModuleInterop",
+    "zcli": "node zcli/zcli.js"
   },
   "dependencies": {
+    "axios": "^0.26.0",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"

@@ -41,7 +41,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 var fs_1 = __importDefault(require("fs"));
 var path_1 = __importDefault(require("path"));
-console.log('==== process.argv', process.argv);
 ;
 var KEYWORDS = {
     generate: { name: 'generate', short: 'g' },
@@ -64,7 +63,7 @@ function runCommand() {
             dirPath = path_1["default"].join(__dirname, elementTypeKey);
             files = fs_1["default"].readdirSync(dirPath);
             REPLACE_KEYWORD = 'FILE_NAME';
-            console.log(files); // [ 'FILE_NAME.component.tsx', 'FILE_NAME.module.scss' ]
+            // console.log(files); // [ 'FILE_NAME.component.tsx', 'FILE_NAME.module.scss' ]
             files.forEach(function (fileName) {
                 var filePath = path_1["default"].join(dirPath, fileName);
                 var fileDate = fs_1["default"].readFileSync(filePath, { encoding: 'utf-8' });
@@ -73,7 +72,7 @@ function runCommand() {
                 // console.log('file, data:', fileName, fileDate);
                 // == write file ====
                 var finalFilePath = path_1["default"].join('./', curElementType.projectPath, destFileName, fileName.replace(REPLACE_KEYWORD, destFileName));
-                console.log('==== destFilePath', finalFilePath);
+                console.log('==== wrinting: ', finalFilePath);
                 fs_1["default"].mkdirSync(path_1["default"].dirname(finalFilePath), { recursive: true }); // make sure dir exists
                 fs_1["default"].writeFileSync(finalFilePath, fileDate);
             });
