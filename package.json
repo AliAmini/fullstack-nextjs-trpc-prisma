@@ -1,7 +1,8 @@
 {
   "name": "my-nextapp",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "A beginner project for learning more about next.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
