@@ -3,8 +3,9 @@ import { GetServerSideProps, GetServerSidePropsContext, GetStaticPaths, GetStati
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { Post } from '../../../types/Posts.types';
-import postsListCss from '../../../components/PostsList/PostsList.module.scss';
+import { Post } from 'types/Posts.types';
+import postsListCss from 'components/PostsList/PostsList.module.scss';
+import { ApiUrl } from 'config/config';
 
 interface Props {
   post: Post
@@ -40,7 +41,7 @@ const PostPage: NextPage<Props> = ({
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params?.id;
-  const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  const res = await axios.get(`${ApiUrl}/posts/${id}`);
   const post = res.data;
 
   console.log('=== fetched single page id:', id);
@@ -53,7 +54,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await axios.get(`https://jsonplaceholder.typicode.com/posts?_limit=10`);
+  const res = await axios.get(`${ApiUrl}/posts`);
   const posts: Post[] = res.data;
 
   /**
