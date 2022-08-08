@@ -42,7 +42,7 @@ const PostPage: NextPage<Props> = ({
 export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params?.id;
   const res = await axios.get(`${ApiUrl}/posts/${id}`);
-  const post = res.data;
+  const post = res.data.post;
 
   console.log('=== fetched single page id:', id);
 
@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await axios.get(`${ApiUrl}/posts`);
-  const posts: Post[] = res.data;
+  const posts: Post[] = res.data.posts;
 
   /**
    * [

@@ -30,7 +30,8 @@ const HomePage: NextPage<Props> = ({
 
 export const getStaticProps = async () => {
   const resp = await axios.get(`${ApiUrl}/posts?_limit=6`);
-  const data = resp.data;
+  const data = resp.data.posts;
+
 
   return {
     props: {
