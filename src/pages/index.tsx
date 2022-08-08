@@ -4,6 +4,7 @@ import axios from 'axios'
 import Home from '../components/Home/Home';
 import { Post } from '../types/Posts.types';
 import db from 'db/db.json';
+import { ApiUrl } from 'config/config';
 
 
 
@@ -20,17 +21,16 @@ const HomePage: NextPage<Props> = ({
   return (
     <div>
 
-      {/* <Home posts={posts} /> */}
-      <h3>Home is here!</h3>
+      <Home posts={posts} />
+      {/* <h3>Home is here!</h3> */}
 
     </div>
   )
 }
 
 export const getStaticProps = async () => {
-  // const resp = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=6');
-  // const data = resp.data;
-  const data = db.posts;
+  const resp = await axios.get(`${ApiUrl}/posts?_limit=6`);
+  const data = resp.data;
 
   return {
     props: {

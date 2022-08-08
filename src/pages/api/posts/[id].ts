@@ -4,12 +4,20 @@ import db from 'db/db.json';
 import { Post } from 'types/Posts.types';
 
 type Data = {
-  posts: Post[]
+  post?: Post,
+  success: boolean,
+  error?: any
 }
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ posts: db.posts })
+  const id = req.query?.id;
+  const post = db.posts.find(p => String(p.id) === id);
+  
+  if(!post) return res.status(404).json({ success: false, error: "Post not found!" });
+  
+  return res.status(200).json({ post: post, success: true });
+
 }
