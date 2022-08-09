@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 import db from 'db/db.json';
-import { Post } from 'types/Posts.types';
+import { Post } from 'types/Post';
 
 type Data = {
   post?: Post,

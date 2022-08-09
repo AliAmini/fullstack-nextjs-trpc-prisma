@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import axios from 'axios'
 import Home from '../components/Home/Home';
-import { Post } from '../types/Posts.types';
+import { Post } from '../types/Post';
 import db from 'db/db.json';
 import { ApiUrl } from 'config/config';
 

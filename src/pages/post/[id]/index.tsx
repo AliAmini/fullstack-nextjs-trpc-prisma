@@ -3,7 +3,7 @@ import { GetServerSideProps, GetServerSidePropsContext, GetStaticPaths, GetStati
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { Post } from 'types/Posts.types';
+import { Post } from 'types/Post';
 import postsListCss from 'components/PostsList/PostsList.module.scss';
 import { ApiUrl } from 'config/config';
 

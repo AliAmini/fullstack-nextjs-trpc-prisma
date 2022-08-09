@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import css from './PostsList.module.scss';
-import { Post } from '../../types/Posts.types';
+import { Post } from '../../types/Post';
 import PostItem from './PostItem';
 
 interface Props {
