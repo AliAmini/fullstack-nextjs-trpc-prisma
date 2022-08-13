@@ -16,14 +16,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 export default withTRPC<AppRouter>({
   config({ctx}) {
-    // const url = `http://localhost:${process.env.APP_PORT}/api/trpc`;
     const url = TrpcUrl;
-    console.log('========== withTRPC >> url', url, process.env.TRPC_URL, process.env.HELLO);
-    // const {APP_PORT,
-    //   APP_URL,
-    //   API_URL,
-    //   TRPC_URL} = process.env;
-    // console.log('APP_PORT, APP_URL, API_URL, TRPC_URL 22', APP_PORT, APP_URL, API_URL, TRPC_URL);
+    // console.log('========== withTRPC >> url', url, process.env.TRPC_URL, process.env.HELLO);
 
     return {
       queryClientConfig: {
