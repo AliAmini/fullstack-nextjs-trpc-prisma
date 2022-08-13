@@ -11,18 +11,16 @@
   },
   "dependencies": {
     "@prisma/client": "^4.1.1",
-    "@storyofams/next-api-decorators": "^1.8.2",
     "@trpc/client": "^9.27.0",
     "@trpc/next": "^9.27.0",
     "@trpc/react": "^9.27.0",
     "@trpc/server": "^9.27.0",
     "axios": "^0.26.0",
-    "class-transformer": "^0.5.1",
-    "class-validator": "^0.8.5",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "reflect-metadata": "^0.1.13",
+    "superjson": "^1.9.1",
     "zod": "^3.18.0"
   },
   "devDependencies": {

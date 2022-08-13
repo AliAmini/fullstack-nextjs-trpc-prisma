@@ -1,41 +1,43 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import axios from 'axios'
-import Home from '../components/Home/Home';
-import { Post } from '../types/Post';
-import db from 'db/db.json';
-import { ApiUrl } from 'config/config';
+import { ApiUrl } from 'src/config/config';
+import { trpc } from '@client/utils/trpc';
 
 
 
 
 export interface Props {
-  posts: Post[],
+  posts: {}[],
 }
 const HomePage: NextPage<Props> = ({
-  posts
+  posts,
 }) => {
+  const trpcData = trpc.useQuery(["users.hello"]);
 
-  console.log('======= posts: length, post[0].title.length', posts.length, posts[0].title.length);
+  // console.log('======= posts: length, post[0].title.length', posts.length, posts[0].title.length);
 
   return (
     <div>
 
-      <Home posts={posts} />
-      {/* <h3>Home is here!</h3> */}
+      {/* <Home posts={posts} /> */}
+      <h3>Home is here!</h3>
+      <p>TRPC data:</p>
+      <code>{JSON.stringify(trpcData)}</code>
+      <p>Data: {trpcData.data}</p>
 
     </div>
   )
 }
 
 export const getStaticProps = async () => {
-  const resp = await axios.get(`${ApiUrl}/posts?_limit=6`);
-  const data = resp.data.posts;
+  // const resp = await axios.get(`${ApiUrl}/posts?_limit=6`);
+  // const data = resp.data.posts;
 
 
   return {
     props: {
-      posts: data
+      posts: []/* data */,
     }
   };
 };
