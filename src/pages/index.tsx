@@ -24,7 +24,7 @@ const HomePage: NextPage<Props> = ({
       <h3>Home is here!</h3>
       <p>TRPC data:</p>
       <code>{JSON.stringify(trpcData)}</code>
-      <p>Data: {trpcData.data}</p>
+      <p>Data: {trpcData.data?.hello}</p>
 
     </div>
   )
