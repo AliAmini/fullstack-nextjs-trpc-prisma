@@ -19,13 +19,14 @@
     "emitDecoratorMetadata": true,
     "baseUrl": "./",
     "paths": {
-      "server/*": ["server/*"],
-      "pages/*": ["src/pages/*"],
-      "types/*": ["src/types/*"],
-      "components/*": ["src/components/*"],
-      "config/*": ["config/*"],
+      "@pages/*": ["src/client/pages/*"],
+      "@components/*": ["src/client/components/*"],
+      "@styles/*": ["src/client/styles/*"],
+      "@server/*": ["src/server/*"],
+      "@client/*": ["src/client/*"],
+      "@config/*": ["src/config/*"],
     },  
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.json"],
+  "include": ["next-src/config/*", "**/*.ts", "**/*.tsx", "**/*.json"],
   "exclude": ["node_modules"]
 }
