@@ -1,4 +1,5 @@
-import '@styles/globals.css'
+import 'antd/dist/antd.min.css'; // or 'antd/dist/antd.less'
+import '@styles/globals.css';
 import type { AppProps } from 'next/app'
 import { withTRPC } from '@trpc/next';
 import { AppRouter } from 'src/server/route/app.router';
