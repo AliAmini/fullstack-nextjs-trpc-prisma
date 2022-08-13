@@ -16,7 +16,7 @@ const Layout:FC<Props> = ({
       <Nav />
       <Header />
 
-      <main className={`main ${styles.main}`}>
+      <main className={`main page-container ${styles.main}`}>
         {children}
       </main>
     </div>
