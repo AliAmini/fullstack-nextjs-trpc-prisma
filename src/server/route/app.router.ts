@@ -1,5 +1,5 @@
 import { createRouter } from "src/server/createRouter";
-import { userRouter } from "./user.router";
+import { userRouter } from "./user/user.router";
 
 export const appRouter = createRouter()
   .merge('users.', userRouter);
