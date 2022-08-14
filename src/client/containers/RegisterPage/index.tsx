@@ -1,5 +1,6 @@
-import { Button, Form, Input } from "antd";
-import { FC, useCallback } from "react";
+import { trpc } from "@client/utils/trpc";
+import { Alert, Button, Form, Input, notification } from "antd";
+import { FC, useCallback, useEffect } from "react";
 
 interface RegisterPageContainerProps {
   
@@ -13,10 +14,27 @@ interface IFormValues {
 }
 
 const RegisterPageContainer: FC<RegisterPageContainerProps> = () => {
+  const registerMutation = trpc.useMutation("users.register");
 
   const formSubmitHandler = useCallback((values: IFormValues) => {
-    
+    registerMutation.mutate(values);
   }, []);
+
+  useEffect(() => {
+    if(!registerMutation.isIdle) {
+      
+      if(registerMutation.isError) {
+        notification.error({
+          message: registerMutation.error.message
+        });
+      } else 
+      if(registerMutation.isSuccess) {
+        notification.success({message: 'The user created successfully!'});
+      }
+
+
+    }
+  }, [registerMutation]);
   
   return (
     <div className="register-page">
@@ -73,8 +91,19 @@ const RegisterPageContainer: FC<RegisterPageContainerProps> = () => {
         </Form.Item>
 
 
+        {/* Error */}
+        {registerMutation.error && (
+          <Alert message={registerMutation.error.message} type="error" />
+        )}
+
+        {/* Success */}
+        {registerMutation.isSuccess && (
+          <Alert message={`the user created: ${JSON.stringify(registerMutation.data.user)}`} type="success" />
+        )}
+
+
         <div className="form-btns">
-          <Button className="form-btn" type="primary" htmlType="submit">Register</Button>
+          <Button className="form-btn" type="primary" htmlType="submit" disabled={registerMutation.isLoading}>Register</Button>
         </div>
 
       </Form>
