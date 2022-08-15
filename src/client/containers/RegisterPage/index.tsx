@@ -22,17 +22,16 @@ const RegisterPageContainer: FC<RegisterPageContainerProps> = () => {
 
   useEffect(() => {
     if(!registerMutation.isIdle) {
-      
+      // error
       if(registerMutation.isError) {
         notification.error({
           message: registerMutation.error.message
         });
       } else 
+      // success
       if(registerMutation.isSuccess) {
         notification.success({message: 'The user created successfully!'});
       }
-
-
     }
   }, [registerMutation]);
   
