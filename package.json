@@ -1,8 +1,8 @@
 {
-  "name": "my-nextapp",
+  "name": "fullstack-nextjs-trpc-prisma",
   "version": "0.1.0",
   "private": false,
-  "description": "A beginner project for learning more about next.js",
+  "description": "A nextjs project for learning more about next.js and working with tRPC and prisma",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
